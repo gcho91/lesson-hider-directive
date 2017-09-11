@@ -4,12 +4,26 @@ angular.module("directivePractice").directive("lessonHider", function() {
     restrict: "E",
     scope: {
       lesson: "=",
-      childlesson: "="
+      dayAlert: "&"
     },
-    link: function(scope, elements, attributes) {
+    controller: function($scope, lessonService) {
+      $scope.getSchedule = lessonService.getSchedule();
+    },
+    link: function(scope, element, attributes) {
       // console.log(scope);
       // // console.log(elements);
       // // console.log(attributes);
+      scope.getSchedule.then(function(response) {
+        scope.schedule = response.data;
+
+        scope.schedule.forEach(function(scheduleDay) {
+          if (scheduleDay.lesson === scope.lesson) {
+            element.css("text-decoration", "line-through");
+            scope.lessonDay = scheduleDay.weekday;
+            return;
+          }
+        });
+      });
     }
   };
 });

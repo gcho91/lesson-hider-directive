@@ -1,4 +1,6 @@
-{{ childlesson }}<br />
+<!-- {{ childlesson }}<br /> -->
+<li>
+  {{lesson}}
+</li>
 
-
-<input type="text" ng-model="childlesson">
+<button ng-click="dayAlert({ lesson: lesson, day: lessonDay})">Which day?</button>

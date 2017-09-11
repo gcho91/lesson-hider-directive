@@ -6,11 +6,16 @@
 
   <body ng-controller="lessonCtrl">
 
-<div ng-repeat="lesson in lessons">
-  {{lesson}}
-  <lesson-hider childlesson="lesson"></lesson-hider>
-</div>
+<ul>
+  
+  <lesson-hider ng-repeat="lesson in lessons" day-alert="announceDay(lesson, day)" lesson="lesson"></lesson-hider>
 
+  <!-- <div ng-repeat="lesson in lessons">
+    {{lesson}}
+    <lesson-hider childlesson="lesson"></lesson-hider>
+  </div> -->
+
+</ul>
 
 
 

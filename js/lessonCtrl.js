@@ -10,5 +10,13 @@ angular.module("directivePractice").controller("lessonCtrl", function($scope) {
     "Express",
     "Mongo"
   ];
-  $scope.parentTest = "Two-way data binding!";
+  // $scope.parentTest = "Two-way data binding!";
+
+  $scope.announceDay = function(lesson, day) {
+    if (day) {
+      alert(lesson + " is active on " + day + ".");
+    } else {
+      alert(lesson + " is not active on this day.");
+    }
+  };
 });
